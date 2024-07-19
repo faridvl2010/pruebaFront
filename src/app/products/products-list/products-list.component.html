@@ -1,0 +1,39 @@
+
+<!-- Formulario para agregar productos -->
+<div *ngIf="show">
+    <form [formGroup] = "form">
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" class="form-control" id="name"  name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Descripción</label>
+        <input type="text" class="form-control" id="description" name="description" required>
+      </div>
+      <div class="form-group">
+        <label for="price">Precio</label>
+        <input type="number" class="form-control" id="price"  name="price" required>
+      </div>
+      <button type="submit" class="btn btn-success" (click)="addProduct()">Agregar Producto</button>
+    </form>
+  </div>
+  
+  
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{product.name}} </td>
+            <td>{{product.description}} </td>
+            <td>{{product.price}} </td>
+            <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+        </tr>
+    </tbody>
+</table>
